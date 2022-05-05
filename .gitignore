@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 node_modules
 package-lock.json
 .vscode
 .DS_Store
-=======
+
 # Logs
 logs
 *.log
@@ -108,4 +107,3 @@ dist
 
 # TernJS port file
 .tern-port
->>>>>>> 3b28b37c78dc3f36703d144c35dae9cf6f144902
