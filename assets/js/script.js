@@ -1,23 +1,56 @@
 //Dom elements
-var saveBtnEl = document.querySelector(".saveBtn")
+// let saveBtnEl = document.querySelector("#btn9")
+// let saveBtn2El = document.querySelector("#btn10")
 
 
-
-
-
-
-
-var timeData = $(".hour").data().time // this accees the data element in the time-block div
-
-var textdata = $(".description").val() // this is the info in the text area 
-
+// $(document).ready(function(){
+//     console.log(allStorage)
+// })
 
 
 
 // Save the description in the textarea w/loacal storage
+var saveData = function (key, value){
+    console.log(key,value)
+    localStorage.setItem(key,value)
+}
 
 
 // Load the description in the textarea w/loacal storage on start of page
+// var  allStorage= function(){
+
+//     var archive = {}, // Notice change here
+//         keys = Object.keys(localStorage),
+//         i = keys.length;
+
+//     while ( i-- ) {
+//         archive[ keys[i] ] = localStorage.getItem( keys[i] );
+//     }
+
+//     console.log(archive)
+//     return archive;
+
+   
+// }
+
+
+// for(var i = 0, )
+
+
+$('#9 .description').val(localStorage.getItem('9'))
+$('#10 .description').val(localStorage.getItem('10'))
+$('#11 .description').val(localStorage.getItem('11'))
+$('#12 .description').val(localStorage.getItem('12'))
+$('#13 .description').val(localStorage.getItem('13'))
+$('#14 .description').val(localStorage.getItem('14'))
+$('#15 .description').val(localStorage.getItem('15'))
+$('#16 .description').val(localStorage.getItem('16'))
+$('#17 .description').val(localStorage.getItem('17'))
+
+
+
+
+
 
 // dom elements for the save button
 
@@ -30,29 +63,33 @@ var textdata = $(".description").val() // this is the info in the text area
 // save function 
 
 
-// this function gets the hour data from the 
-var getHourFunc = function(){
-    console.log("Time data")
-    console.log(timeData)
-      //returns the time for div being accessed
-    return this.timeData
-    // console.log("This works")
-}
-// this function gets the data from the textarea 
-var getTextFunc = function(){
-    console.log("Text area data")
-    console.log(textdata)
-    //returns the text for div being accessed
-    return this.textdata
-    // console.log("This works")
-}
 
 
-// this runs gethour and gettext
-saveBtnEl.addEventListener("click",() => {
-    getHourFunc();
-    getTextFunc();
-})
+
+// pulls the info from the button click and saves it to local storage
+$(".saveBtn").click(function (event)
+
+ {
+    //this pulls the task info from the siblings div of the button pressed
+    let taskDescription =$(this).siblings('.description').val()
+    
+    // this will take the data attr from the save button
+    let dataID = $(this).parent().attr("id");
+    
+
+    // test data  output
+    console.log(dataID)  
+    console.log(taskDescription)
+
+    //save data to local storage
+    saveData(dataID,taskDescription)
+    })
+
+// runs the the handle button once save is pressed
+// saveBtnEl.addEventListener("click", handleBtnClick);
+// saveBtn2El.addEventListener("click", handleBtnClick);
+
+
 
 
 
