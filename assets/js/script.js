@@ -1,12 +1,15 @@
 //Dom elements
 
+
+
+
 // displays the current time rounded down to the hour
 let currentTime = moment().hour()
 
+
+
 console.log(currentTime)
-window.onload = function() {
-    checkTime();
-  };
+
 
 
 // Save the description in the textarea w/loacal storage as value
@@ -41,14 +44,35 @@ $('#17 .description').val(localStorage.getItem('17'))
 // use a for loop
 // queryselectall creates an array of item to loop through in the conditional function
 
-//  function checkTime() {
-//     let taskTime = $(".time-block").parent().attr("id");
-//     console.log("taskTime")
-//     console.log(taskTime)
+ function checkTime() {
 
-// }
+  let textEl= $(".description")
+  //   the acttaul time of the time bloc
+    let taskTime = $(".time-block").attr("id");
+    // console.log("taskTime")
+    console.log("taskTime: " + taskTime)
 
+for(var i=0; i<textEl.length; i++){
 
+  if (currentTime > taskTime){
+  
+    $(textEl[i]).addClass("past") 
+ 
+    }
+  else if (currentTime < taskTime){
+  
+    $(textEl[i]).addClass("future") 
+ 
+    }
+  else if (currentTime == taskTime){
+  
+    $(textEl[i]).addClass("present") 
+ 
+    }
+}
+}
+
+checkTime();
 
 
 
