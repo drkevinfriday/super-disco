@@ -40,20 +40,17 @@ $('#17 .description').val(localStorage.getItem('17'))
 
 
 //conditonal fucntion evaluating the current time vs the task time "textarea  id"
-// this should run on load
-// use a for loop
-// queryselectall creates an array of item to loop through in the conditional function
-
  function checkTime() {
 
   let textEl= $(".description")
-  //   the acttaul time of the time bloc
+  //   the actaul time of the time block
     let taskTime = $(".time-block").attr("id");
     // console.log("taskTime")
     console.log("taskTime: " + taskTime)
-
+    
+    console.log( textEl)
 for(var i=0; i<textEl.length; i++){
-
+ 
   if (currentTime > taskTime){
   
     $(textEl[i]).addClass("past") 
