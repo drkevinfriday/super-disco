@@ -1,10 +1,12 @@
 //Dom elements
 
 
-
+let currentDay = moment().format('MMMM Do YYYY, h:mm:ss a')
 
 // displays the current time rounded down to the hour
 let currentTime = moment().hour()
+
+console.log(currentDay)
 
 
 
@@ -23,20 +25,12 @@ var saveData = function (key, value){
 
 
 
-
-
-
 //conditonal fucntion evaluating the current time vs the task time "textarea id"
  function checkTime() {
 
 
-
-  //   the actaul time of the time block
-  let taskTime = $(".time-block").attr("id")
-  console.log(taskTime)
-
-
  $(".time-block").each(function() { 
+      let taskTime = parseInt($(this).attr("id"))
   
   if (currentTime > taskTime){
   
@@ -66,7 +60,7 @@ else if (currentTime == taskTime){
 
 
 
-
+$('#currentDay').html(currentDay)
 
 // Load the description  by key value reference 
 $('#9 .description').val(localStorage.getItem('9'))
