@@ -8,7 +8,7 @@ let currentTime = moment().hour()
 
 
 
-console.log(currentTime)
+console.log("this is the current" +currentTime)
 
 
 
@@ -19,6 +19,53 @@ var saveData = function (key, value){
     console.log(key,value)
     localStorage.setItem(key,value)
 }
+
+
+
+
+
+
+
+//conditonal fucntion evaluating the current time vs the task time "textarea id"
+ function checkTime() {
+
+
+
+  //   the actaul time of the time block
+  let taskTime = $(".time-block").attr("id")
+  console.log(taskTime)
+
+
+ $(".time-block").each(function() { 
+  
+  if (currentTime > taskTime){
+  
+   
+  $(this).addClass("past") 
+
+  }
+else if (currentTime < taskTime){
+
+  $(this).addClass("future") 
+
+  }
+else if (currentTime == taskTime){
+
+  $(this).addClass("present") 
+
+  }
+})
+}
+
+
+
+
+
+
+
+
+
+
 
 
 // Load the description  by key value reference 
@@ -33,41 +80,6 @@ $('#16 .description').val(localStorage.getItem('16'))
 $('#17 .description').val(localStorage.getItem('17'))
 
 
-
-
-
-
-
-
-//conditonal fucntion evaluating the current time vs the task time "textarea  id"
- function checkTime() {
-
-  let textEl= $(".description")
-  //   the actaul time of the time block
-    let taskTime = $(".time-block").attr("id");
-    // console.log("taskTime")
-    console.log("taskTime: " + taskTime)
-    
-    console.log( textEl)
-for(var i=0; i<textEl.length; i++){
- 
-  if (currentTime > taskTime){
-  
-    $(textEl[i]).addClass("past") 
- 
-    }
-  else if (currentTime < taskTime){
-  
-    $(textEl[i]).addClass("future") 
- 
-    }
-  else if (currentTime == taskTime){
-  
-    $(textEl[i]).addClass("present") 
- 
-    }
-}
-}
 
 checkTime();
 
